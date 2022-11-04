@@ -1,12 +1,20 @@
 package com.github.mittyrobotics;
 
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.XboxController;
 
 
 public class Robot extends TimedRobot {
+    WPI_TalonFX motor;
+
+    XboxController contro;
     @Override
     public void robotInit() {
+        motor = new WPI_TalonFX(24);
+        motor.configFactoryDefault();
+        contro = new XboxController(1);
 
     }
 
@@ -36,6 +44,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopPeriodic() {
+        motor.set(contro.getLeftY());
     }
 
     @Override
