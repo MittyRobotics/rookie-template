@@ -56,11 +56,11 @@ public class Robot extends TimedRobot {
             leftForce += 0.5 * contro.getLeftY();
             rightForce += 0.5 * contro.getLeftY();
         } if (contro.getRightX() > 0.2) {
-            rightForce += 0.5 * contro.getRightX();
+            rightForce -= contro.getRightX();
             leftForce += contro.getRightX();
         } else if (contro.getRightX() < -0.2) {
             rightForce += contro.getRightX();
-            leftForce += 0.5 * contro.getRightX();
+            leftForce -= contro.getRightX();
         } else {
             motor.set(0);
             secondary.set(0);
@@ -68,7 +68,6 @@ public class Robot extends TimedRobot {
 
 
         //i hope i didnt make a lpgic error :)
-        //might go over the top of th elimit of the set function
 
         motor.set(leftForce);
         secondary.set(rightForce);
