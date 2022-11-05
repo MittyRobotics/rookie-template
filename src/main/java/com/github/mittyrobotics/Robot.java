@@ -44,7 +44,10 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopPeriodic() {
-        motor.set(contro.getLeftY());
+        if (contro.getLeftY() > 0.2 || contro.getLeftY() < 0.2) {
+            motor.set(contro.getLeftY());
+        }
+
     }
 
     @Override
