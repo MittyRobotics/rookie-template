@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
 
 
-public class Robot extends TimedRobot {
+public class Robot2 extends TimedRobot {
     @Override
     XboxController controller;
     WPI_TalonSRX motor;
@@ -52,12 +52,19 @@ public class Robot extends TimedRobot {
     public void teleopPeriodic() {
         if(controller.getLeftY()<-0.2||controller.getLeftY()>0.2) {
             motor.set(controller.getLeftY());
+            motor2.set(controller.getLeftY())
         }
         else{
             motor.set(0);
         }
-        if(controller.getRightY()<-0.2||controller.getRightY()>0.2) {
-            motor2.set(controller.getRightY());
+
+        if(controller.getRightX()>0.2) {
+            motor2.set(controller.getRightX());
+            motor.set(-(controller.getRightX())/2);
+        }
+        else if(controller.getRightX()<-0.2) {
+            motor2.set(-(controller.getRightX())/2);
+            motor.set(controller.getRightX());
         }
         else{
             motor2.set(0);
