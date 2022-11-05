@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.XboxController;
 
 public class Robot extends TimedRobot {
     WPI_TalonFX motor;
+    WPI_TalonFX secondary;
 
     XboxController contro;
     @Override
@@ -15,6 +16,7 @@ public class Robot extends TimedRobot {
         motor = new WPI_TalonFX(24);
         motor.configFactoryDefault();
         contro = new XboxController(1);
+        secondary = new WPI_TalonFX(76);
 
     }
 
@@ -48,6 +50,12 @@ public class Robot extends TimedRobot {
             motor.set(contro.getLeftY());
         } else {
             motor.set(0);
+        }
+
+        if (contro.getRightY() > 0.2 || contro.getRightY() < -0.2) {
+            secondary.set(contro.getRightY());
+        } else {
+            secondary.set(0);
         }
 
     }
