@@ -10,6 +10,7 @@ public class Robot extends TimedRobot {
     WPI_TalonSRX motor_right;
     WPI_TalonSRX motor_left;
     XboxController controller;
+    double right, left = 0;
 
     @Override
     public void robotInit() {
@@ -19,6 +20,9 @@ public class Robot extends TimedRobot {
         motor_left = new WPI_TalonSRX(24);
         motor_left.configFactoryDefault();
         controller = new XboxController(0);
+        right = 0;
+        left = 0;
+
     }
 
     @Override
@@ -47,7 +51,8 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopPeriodic() {
-        double right, left = 0;
+        right = 0;
+        left = 0;
         if(controller.getLeftY()>0.2 || controller.getLeftY()<-0.2)
         {
             left = controller.getLeftY();
