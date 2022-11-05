@@ -47,24 +47,28 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopPeriodic() {
+        double right, left = 0;
         if(controller.getLeftY()>0.2 || controller.getLeftY()<-0.2)
         {
-            motor_left.set(controller.getLeftY());
+            left = controller.getLeftY();
+            right = controller.getRightY();
         }
         else
         {
-            motor_left.set(0);
+            left = 0;
+            right = 0;
         }
 
-        if(controller.getRightY()>0.2 || controller.getRightY()<-0.2)
+        if(controller.getRightX()<-0.2)
         {
-            motor_right.set(controller.getRightY());
+            left -= controller.getRightX();
         }
-        else
+        else if(controller.getRightX()>0.2)
         {
-            motor_right.set(0);
+            right += controller.getRightX();
         }
-
+        motor_right.set(right);
+        motor_left.set(left);
 
     }
 
