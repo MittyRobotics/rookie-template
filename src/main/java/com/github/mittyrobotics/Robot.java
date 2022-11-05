@@ -10,9 +10,14 @@ public class Robot extends TimedRobot {
     WPI_TalonFX motor;
     WPI_TalonFX secondary;
 
+    double leftForce;
+    double rightForce;
+
     XboxController contro;
     @Override
     public void robotInit() {
+        leftForce = 0.0;
+        rightForce = 0.0;
         motor = new WPI_TalonFX(24);
         motor.configFactoryDefault();
         contro = new XboxController(1);
@@ -48,16 +53,26 @@ public class Robot extends TimedRobot {
     @Override
     public void teleopPeriodic() {
         if (contro.getLeftY() > 0.2 || contro.getLeftY() < -0.2) {
-            motor.set(contro.getLeftY());
+            leftForce += 0.5 * contro.getLeftY();
+            rightForce += 0.5 * contro.getLeftY();
+        } if (contro.getRightX() > 0.2) {
+            rightForce -= contro.getRightX();
+            leftForce += contro.getRightX();
+        } else if (contro.getRightX() < -0.2) {
+            rightForce += contro.getRightX();
+            leftForce -= contro.getRightX();
         } else {
             motor.set(0);
-        }
-
-        if (contro.getRightY() > 0.2 || contro.getRightY() < -0.2) {
-            secondary.set(contro.getRightY());
-        } else {
             secondary.set(0);
         }
+
+
+        //i hope i didnt make a lpgic error :)
+
+        motor.set(leftForce);
+        secondary.set(rightForce);
+
+
 
     }
 
