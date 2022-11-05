@@ -17,6 +17,7 @@ public class Robot extends TimedRobot {
         motor.configFactoryDefault();
         contro = new XboxController(1);
         secondary = new WPI_TalonFX(76);
+        secondary.setInverted(true);
 
     }
 
