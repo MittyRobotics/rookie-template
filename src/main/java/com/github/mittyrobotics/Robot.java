@@ -14,6 +14,7 @@ public class Robot extends TimedRobot {
     @Override
     public void robotInit() {
         motor_right = new WPI_TalonSRX(24);
+        motor_left.setInverted(true);
         motor_right.configFactoryDefault();
         motor_left = new WPI_TalonSRX(24);
         motor_left.configFactoryDefault();
