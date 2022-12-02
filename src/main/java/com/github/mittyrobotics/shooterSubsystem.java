@@ -29,6 +29,7 @@ public class shooterSubsystem extends SubsystemBase {
 
     @Override
     public void periodic() {
+        //makes no sense since will reset every time??????
         shooterMotor.set(2.0);
         turretMotor.set(2.0);
     }
