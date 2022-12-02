@@ -32,6 +32,9 @@ public class shooterSubsystem extends SubsystemBase {
             //nothing
     }
 
+
+
+
     public void setMotorTo(double spd) {
             shooterMotor.set(spd);
         }
