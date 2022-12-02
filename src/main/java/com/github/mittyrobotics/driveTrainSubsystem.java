@@ -32,4 +32,22 @@ public class driveTrainSubsystem extends SubsystemBase {
     public void periodic() {
 
     }
+
+    public void invert(WPI_TalonFX mot) {
+        mot.setInverted(true);
+    }
+
+    public void setMotor(WPI_TalonFX mot, double dob) {
+        mot.set(dob);
+    }
+
+    public void updateDash() {
+        //nothing
+    }
+
+    public void shutOff() {
+        for (WPI_TalonFX mot: motors) {
+            mot.set(0);
+        }
+    }
 }
