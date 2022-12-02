@@ -27,7 +27,8 @@ public class shooterSubsystem extends SubsystemBase {
 
     }
 
-    public void periodic() {
+    @Override
+    public void period() {
         shooterMotor.set(2.0);
         turretMotor.set(2.0);
     }
