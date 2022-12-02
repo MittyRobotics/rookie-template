@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class driveTrainSubsystem extends SubsystemBase {
     static driveTrainSubsystem ourInstance = new driveTrainSubsystem();
 
-    public static driveTrainSubsystem getInstance() {return ourInstance};
+    public static driveTrainSubsystem getInstance() {return ourInstance;}
 
     private driveTrainSubsystem() {
         //with properties and the such
