@@ -36,10 +36,6 @@ public class driveTrainSubsystem extends SubsystemBase {
 
     }
 
-    public void setMotor(WPI_TalonFX mot, double dob) {
-        mot.set(dob);
-    }
-
     public void updateDash() {
         //nothing
     }
