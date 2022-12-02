@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class shooterCommand extends CommandBase {
     shooterSubsystem ss = shooterSubsystem.getInstance();
+
     public shooterCommand() {
         addRequirements(ss);
     }
@@ -14,6 +15,12 @@ public class shooterCommand extends CommandBase {
 
     public void execute() {
         ss.setMotorTo(2.0);
+        ss.setTurretTo(2.0);
+    }
+
+
+    public void end() {
+        ss.shutOff();
     }
 
     public boolean isFinished() {

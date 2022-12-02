@@ -9,37 +9,40 @@ public class shooterSubsystem extends SubsystemBase {
 
     static shooterSubsystem ourInstance = new shooterSubsystem();
     public static shooterSubsystem getInstance() {
-            return ourInstance;
-        }
-
-    shooterSubsystem() {
-        super();
+        return ourInstance;
     }
 
-    WPI_TalonFX shooterMotor;
+    private shooterSubsystem() {
+        super(" Shooter Subsystem ");
+    }
 
-    public void initializeHardware() {
-         shooterMotor = new WPI_TalonFX(1);
-         shooterMotor.configFactoryDefault();
+    WPI_TalonFX shooterMotor, turretMotor;
+
+    public void initHardware() {
+        turretMotor = new WPI_TalonFX(2);
+        shooterMotor = new WPI_TalonFX(1);
+        shooterMotor.configFactoryDefault();
+        turretMotor.configFactoryDefault();
 
     }
 
     public void periodic() {
-            shooterMotor.set(2.0);
-        }
-
-    public void updateDash() {
-            //nothing
+        shooterMotor.set(2.0);
+        turretMotor.set(2.0);
     }
 
-
-
-
+    public void updateDash() {
+        //nothing
+    }
+    public void setTurretTo(double spd) {
+        turretMotor.set(spd);
+    }
     public void setMotorTo(double spd) {
-            shooterMotor.set(spd);
-        }
+        shooterMotor.set(spd);
+    }
 
     public void shutOff() {
-            shooterMotor.set(0);
-        }
+        shooterMotor.set(0);
+        turretMotor.set(0);
+    }
 }
