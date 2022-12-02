@@ -26,15 +26,14 @@ public class driveTrainSubsystem extends SubsystemBase {
             mot.configFactoryDefault();
         }
 
+        brMotor.setInverted(true);
+        blMotor.setInverted(true);
+
     }
 
     @Override
     public void periodic() {
 
-    }
-
-    public void invert(WPI_TalonFX mot) {
-        mot.setInverted(true);
     }
 
     public void setMotor(WPI_TalonFX mot, double dob) {
