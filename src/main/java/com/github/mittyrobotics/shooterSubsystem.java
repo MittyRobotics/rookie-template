@@ -12,13 +12,13 @@ public class shooterSubsystem extends SubsystemBase {
             return ourInstance;
         }
 
-    shooterSubsystem() {
-        super();
+    private shooterSubsystem() {
+        super( " Shooter Subsystem ");
     }
 
     WPI_TalonFX shooterMotor;
 
-    public void initializeHardware() {
+    public void initHardware() {
          shooterMotor = new WPI_TalonFX(1);
          shooterMotor.configFactoryDefault();
 
@@ -31,7 +31,7 @@ public class shooterSubsystem extends SubsystemBase {
     public void updateDash() {
             //nothing
     }
-
+    //need shooter motor turn function!
     public void setMotorTo(double spd) {
             shooterMotor.set(spd);
         }

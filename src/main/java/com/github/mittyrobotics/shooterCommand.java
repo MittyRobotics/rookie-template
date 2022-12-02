@@ -16,6 +16,9 @@ public class shooterCommand extends CommandBase {
         ss.setMotorTo(2.0);
     }
 
+
+    //need end function
+
     public boolean isFinished() {
         return false;
     }
