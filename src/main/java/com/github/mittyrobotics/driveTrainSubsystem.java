@@ -31,6 +31,24 @@ public class driveTrainSubsystem extends SubsystemBase {
 
     }
 
+
+
+    public void setRightMotors(double speed) {
+        brMotor.set(speed);
+        blMotor.set(speed);
+    }
+
+    public void setLeftMotors(double speed) {
+        blMotor.set(speed);
+        tlMotor.set(speed);
+    }
+
+    public void driveForward(double speed) {
+        for (WPI_TalonFX e: motors) {
+            e.set(speed);
+        }
+    }
+
     @Override
     public void periodic() {
 
