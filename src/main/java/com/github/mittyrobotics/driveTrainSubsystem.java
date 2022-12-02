@@ -49,6 +49,12 @@ public class driveTrainSubsystem extends SubsystemBase {
         }
     }
 
+    public void driveBackwards(double speed) {
+        for (WPI_TalonFX e: motors) {
+            e.set(-speed);
+        }
+    }
+
     @Override
     public void periodic() {
 
