@@ -4,9 +4,26 @@ package com.github.mittyrobotics;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+
 
 
 public class Robot extends TimedRobot {
+    /**
+     * public class intakeSubsys extends SubsystemBase {
+     *         private static intakeSubsys ourInst = new intakeSubsys(); //singleton pattern
+     *         public static intakeSubsys getInst() {
+     *             return ourInst;
+     *         }
+     *         private intakeSubsys() {
+     *             super("Intake Subsys);
+     *         }
+     *     }
+     */
+
+
+
+
     WPI_TalonFX motor;
     WPI_TalonFX secondary;
 
@@ -52,7 +69,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopPeriodic() {
-        leftForce = 0.0;
+    /**    leftForce = 0.0;
         rightForce = 0.0;
         if (contro.getLeftY() > 0.2 || contro.getLeftY() < -0.2) {
             leftForce += 0.5 * contro.getLeftY();
@@ -72,7 +89,7 @@ public class Robot extends TimedRobot {
         //i hope i didnt make a lpgic error :)
 
         motor.set(leftForce);
-        secondary.set(rightForce);
+        secondary.set(rightForce); **/
 
 
 
