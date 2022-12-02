@@ -14,6 +14,7 @@ public class shooterSubsystem extends SubsystemBase {
 
     private shooterSubsystem() {
         super();
+        setName("Shooter Subsystem");
     }
 
     WPI_TalonFX shooterMotor, turretMotor;
