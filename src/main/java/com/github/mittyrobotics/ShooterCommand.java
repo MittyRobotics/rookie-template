@@ -18,8 +18,8 @@ public class ShooterCommand extends CommandBase {
     }
     @Override
     public void end(boolean interrupted){
-        ShooterSubsystem.getInstance().TurnOffMotorLeft();
-        ShooterSubsystem.getInstance().TurnOffMotorRight();
+        ShooterSubsystem.getInstance().TurnOnMotorLeft();
+        ShooterSubsystem.getInstance().TurnOnMotorRight();
     }
     @Override
     public boolean isFinished(){
