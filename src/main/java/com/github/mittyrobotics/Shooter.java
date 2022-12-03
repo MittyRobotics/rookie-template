@@ -23,6 +23,8 @@ public class Shooter extends SubsystemBase{
     public void periodic()
     {
         shooterMotor.set(0);
+        turretMotorlr.set(0);
+        turretMotorud.set(0);
     }
 
     public void turnShooterOn()
@@ -30,7 +32,7 @@ public class Shooter extends SubsystemBase{
         shooterMotor.set(1);
     }
 
-    public void turnShooterOff1()
+    public void turnShooterOff()
     {
         shooterMotor.set(0);
     }

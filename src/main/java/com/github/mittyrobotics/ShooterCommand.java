@@ -10,18 +10,22 @@ public class ShooterCommand extends CommandBase {
     @Override
     public void initialize() {
         //OI.getInstance().setIntaking(true);
-        Shooter.getInstance().turnShooterOff1();
+        Shooter.getInstance().turnShooterOff();
+
     }
 
     @Override
     public void execute() {
-
         Shooter.getInstance().turnShooterOn();
+        Shooter.getInstance().OnTurretlr();
+        Shooter.getInstance().OnTurretud();
     }
 
     @Override
     public void end(boolean interrupted) {
-        Shooter.getInstance().turnShooterOn();
+        Shooter.getInstance().turnShooterOff();
+        Shooter.getInstance().OffTurretlr();
+        Shooter.getInstance().OffTurretud();
        // OI.getInstance().setIntaking(false);
     }
 
