@@ -27,4 +27,12 @@ public class driveTrainCommand extends CommandBase {
         //dtS.driveBackwards(2.0);
     }
 
+    public void end() {
+        dtS.shutOff();
+    }
+
+    public boolean isFinished() {
+        return false;
+    }
+
 }
