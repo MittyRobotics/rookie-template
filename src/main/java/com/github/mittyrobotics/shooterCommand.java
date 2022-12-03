@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class shooterCommand extends CommandBase {
     shooterSubsystem ss = shooterSubsystem.getInstance();
+    //end
 
     public shooterCommand() {
         addRequirements(ss);
