@@ -9,10 +9,12 @@ import edu.wpi.first.wpilibj.XboxController;
 public class Robot extends TimedRobot {
 
     XboxController controller;
-    XboxController controllerR;
+    double fwdSpeed = 0.5;
+    double horizSpeed = 0.5;
+
 
     WPI_TalonSRX motor;
-    WPI_TalonSRX motorR;
+    WPI_TalonSRX motor2;
 
     @Override
     public void robotInit() {
@@ -21,10 +23,12 @@ public class Robot extends TimedRobot {
 
         controller = new XboxController(8);
 
-        motorR = new WPI_TalonSRX(25);
-        motorR.configFactoryDefault();
+        motor2 = new WPI_TalonSRX(25);
+        motor2.configFactoryDefault();
 
-        controllerR = new XboxController(9);
+        motor2.setInverted(true);
+
+
 
     }
 
@@ -55,19 +59,17 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopPeriodic() {
+     if (controller.getLeftY() > ) //code for the circle error thing
+        if (controller.getLeftY() > 0){
+            fwdSpeed = horizSpeed = 0.7;
+            motor.set(fwdSpeed);
+            motor2.set(fwdSpeed);
 
-        if (controller.getLeftY() < -0.2 ||  controller.getLeftY() > 0.2) {
-            motor.set(controller.getLeftY());
-        }else{
-            motor.set(0);
-        }
+        if (controller.getLeftY() < 0){
+            fwdSpeed = horizSpeed = 0.3;
+            motor.set()
+        } //horiz and vertical speed
 
-        if (controllerR.getRightY() < -0.2 ||  controller.getRightY() > 0.2) {
-            motor.set(controller.getRightY());
-        }else{
-            motorR.set(0);
-        }
-    }
 
     @Override
     public void disabledInit() {
