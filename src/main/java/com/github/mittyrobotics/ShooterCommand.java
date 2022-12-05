@@ -7,19 +7,16 @@ public class ShooterCommand extends CommandBase {
 
     @Override
     public void initialized(){
-        ShooterSubsystem.getInstance().TurnOffMotorLeft();
-        ShooterSubsystem.getInstance().TurnOffMotorRight();
+        ShooterSubsystem.getInstance().TurnOffShooter();
     }
     @Override
     public void execute(){
-        ShooterSubsystem.getInstance().TurnOnMotorLeft();
-        ShooterSubsystem.getInstance().TurnOnMotorRight();
+        ShooterSubsystem.getInstance().TurnOnShooter();
 
     }
     @Override
     public void end(boolean interrupted){
-        ShooterSubsystem.getInstance().TurnOnMotorLeft();
-        ShooterSubsystem.getInstance().TurnOnMotorRight();
+        ShooterSubsystem.getInstance().TurnOnShooter();
     }
     @Override
     public boolean isFinished(){

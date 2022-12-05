@@ -15,33 +15,33 @@ public class ShooterSubsystem extends SubsystemBase {
 
     }
 
-    WPI_TalonSRX motorLeft, motorRight;
+    WPI_TalonSRX turret, shooter;
 
     public void initHardware(){
         //creating hardware objects to be accessed within subsystem
-        motorLeft = new WPI_TalonSRX(0);
-        motorLeft.configFactoryDefault();
+        turret = new WPI_TalonSRX(0);
+        turret.configFactoryDefault();
 
-        motorRight = new WPI_TalonSRX(1);
-        motorRight.configFactoryDefault();
+        shooter = new WPI_TalonSRX(1);
+        shooter.configFactoryDefault();
 
         //set any inverted
-        motorLeft.setInverted(true);
+        turret.setInverted(true);
      }
-     public void TurnOnMotorLeft() {
-        motorLeft.set(1);
+     public void TurnOnTurret() {
+        turret.set(1);
 
     }
-    public void TurnOffMotorLeft() {
-        motorLeft.set(0);
+    public void TurnOffTurret() {
+        turret.set(0);
 
     }
-    public void TurnOnMotorRight(){
+    public void TurnOnShooter(){
 
-        motorRight.set(1);
+        shooter.set(1);
     }
-    public void TurnOffMotorRight() {
-        motorLeft.set(0);
+    public void TurnOffShooter() {
+        turret.set(0);
 
     }
 
