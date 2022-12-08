@@ -14,4 +14,11 @@ public class DrivetrainCommand extends CommandBase {
     public void execute(){
         DrivetrainSubsystem.getInstance().driveForward();
     }
+
+    @Override
+    public void end(boolean interrupted){
+        DrivetrainSubsystem.getInstance().turnOff();
+    }
+    @Override
+    public boolean isFinished() {return false; }
 }
