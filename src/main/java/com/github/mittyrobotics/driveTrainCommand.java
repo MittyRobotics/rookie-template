@@ -11,10 +11,12 @@ public class driveTrainCommand extends CommandBase {
         addRequirements(dtS);
     }
 
+    @Override
     public void initialize() {
         dtS.shutOff();
     }
 
+    @Override
     public void execute() {
         dtS.turnLeftWithoutStopping(3.0);
         //dtS.turnRightWithoutStopping(3.0);
@@ -22,10 +24,12 @@ public class driveTrainCommand extends CommandBase {
         //dtS.driveBackwards(2.0);
     }
 
-    public void end() {
+    @Override
+    public void end(boolean interrupted) {
         dtS.shutOff();
     }
 
+    @Override
     public boolean isFinished() {
         return false;
     }
