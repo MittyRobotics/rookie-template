@@ -64,7 +64,7 @@ public class Robot extends TimedRobot {
         left = 0;
         if(controller.getLeftY()>0.2 || controller.getLeftY()<-0.2)
         {
-            left = controller.getLeftY();
+            left = controller.getRightY();
             right = controller.getRightY();
         }
         else
