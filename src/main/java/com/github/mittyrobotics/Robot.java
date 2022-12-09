@@ -67,7 +67,7 @@ public class Robot extends TimedRobot {
 
         if (controller.getLeftY() < 0){
             fwdSpeed = horizSpeed = 0.3;
-            motor.set()
+            motor.set();
         } //horiz and vertical speed
 
 
