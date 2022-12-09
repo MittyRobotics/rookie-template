@@ -56,6 +56,9 @@ public class Robot extends TimedRobot {
         tertiary.setInverted(true);
         quad = new WPI_TalonFX(4);
         quad.setInverted(true);
+        secondary.configFactoryDefault();
+        tertiary.configFactoryDefault();
+        quad.configFactoryDefault();
 
 
         leftMotors[0] = motor;
