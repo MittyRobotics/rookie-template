@@ -1,5 +1,6 @@
 package com.github.mittyrobotics;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -15,33 +16,31 @@ public class ShooterSubsystem extends SubsystemBase {
 
     }
 
-    WPI_TalonSRX turret, shooter;
+    WPI_TalonSRX motor1, motor2;
 
     public void initHardware(){
         //creating hardware objects to be accessed within subsystem
-        turret = new WPI_TalonSRX(0);
-        turret.configFactoryDefault();
+        motor1 = new WPI_TalonSRX(0);
 
-        shooter = new WPI_TalonSRX(1);
-        shooter.configFactoryDefault();
+        motor2 = new WPI_TalonSRX(1);
 
         //set any inverted
-        turret.setInverted(true);
+        motor1.setInverted(true);
      }
-     public void TurnOnTurret() {
-        turret.set(1);
+     public void TurnOnMotor1() {
+        motor1.set(ControlMode.PercentOutput, 1);
 
     }
-    public void TurnOffTurret() {
-        turret.set(0);
+    public void TurnOffMotor1() {
+        motor1.set(ControlMode.PercentOutput, 0);
 
     }
-    public void TurnOnShooter(){
+    public void TurnOnMotor2(){
 
-        shooter.set(1);
+        motor2.set(ControlMode.PercentOutput, 1);
     }
-    public void TurnOffShooter() {
-        turret.set(0);
+    public void TurnOffMotor2() {
+        motor1.set(ControlMode.PercentOutput, 0);
 
     }
 
