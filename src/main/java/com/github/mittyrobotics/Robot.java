@@ -53,12 +53,15 @@ public class Robot extends TimedRobot {
         contro = new XboxController(1);
         secondary = new WPI_TalonFX(2);
         tertiary = new WPI_TalonFX(3);
-        tertiary.setInverted(true);
-        quad = new WPI_TalonFX(4);
-        quad.setInverted(true);
         secondary.configFactoryDefault();
         tertiary.configFactoryDefault();
+        quad = new WPI_TalonFX(4);
+
         quad.configFactoryDefault();
+        tertiary.setInverted(true);
+        quad.setInverted(true);
+
+
 
 
         leftMotors[0] = motor;
@@ -101,9 +104,9 @@ public class Robot extends TimedRobot {
             rightForce += 0.5 * contro.getLeftY();
         } if (contro.getRightX() > 0.2) {
             rightForce -= contro.getRightX();
-            leftForce += contro.getRightX();
+            //leftForce += contro.getRightX();
         } else if (contro.getRightX() < -0.2) {
-            rightForce += contro.getRightX();
+            //rightForce += contro.getRightX();
             leftForce -= contro.getRightX();
         } else {
             motor.set(0);
