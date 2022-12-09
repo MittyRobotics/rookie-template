@@ -17,16 +17,16 @@ public class Robot extends TimedRobot {
     //
     @Override
     public void robotInit() {
-        motor_right = new WPI_TalonSRX(24);
+        motor_right = new WPI_TalonSRX(3);
         motor_left.setInverted(true);
         motor_right.configFactoryDefault();
-        motor_left = new WPI_TalonSRX(24);
+        motor_left = new WPI_TalonSRX(1);
         motor_left.configFactoryDefault();
         controller = new XboxController(0);
-        motor_right_d = new WPI_TalonSRX(24);
+        motor_right_d = new WPI_TalonSRX(4);
         motor_left_d.setInverted(true);
         motor_right_d.configFactoryDefault();
-        motor_left_d = new WPI_TalonSRX(24);
+        motor_left_d = new WPI_TalonSRX(2);
         motor_left_d.configFactoryDefault();
         //controller = new XboxController(0);
         right = 0;
