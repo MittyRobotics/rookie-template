@@ -3,8 +3,8 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class driveTrainCommand extends CommandBase {
 
-    public void IntakeCommand() {
-        addRequirements(Shooter.getInstance());
+    public void driveTrainCommand() {
+        addRequirements(driveTrain.getInstance());
     }
 
     @Override
