@@ -4,25 +4,32 @@ package com.github.mittyrobotics;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.XboxController;
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 
 public class Robot extends TimedRobot {
     XboxController controller;
-    WPI_TalonSRX motorLeft;
-    WPI_TalonSRX motorRight;
+    WPI_TalonSRX motor1, motor2, motor3, motor4;
 
 
     @Override
     public void robotInit() {
-        motorLeft = new WPI_TalonSRX(24);
-        motorLeft.configFactoryDefault();
+        motor1 = new WPI_TalonSRX(1);
+        motor1.configFactoryDefault();
 
-        motorRight = new WPI_TalonSRX(24);
-        motorRight.configFactoryDefault();
+        motor2 = new WPI_TalonSRX(2);
+        motor2.configFactoryDefault();
+
+        motor3 = new WPI_TalonSRX(3);
+        motor3.configFactoryDefault();
+
+        motor4 = new WPI_TalonSRX(3);
+        motor4.configFactoryDefault();
 
         controller = new XboxController(0);
-        motorLeft.setInverted(true);
+        motor1.setInverted(true);
+        motor3.setInverted(true);
+
+
 
     }
 
@@ -52,24 +59,25 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopPeriodic() {
-        double b = 0;
-        double b1 = 0;
+        double right = 0;
+        double left = 0;
+        if(controller.getLeftY()>0.2||controller.getLeftY()<-0.2){
+            left = controller.getLeftY();
+            right = controller.getRightY();
+        }else{
+            left = 0;
+            right = 0;
+        }
+        if(controller.getRightX()<-0.2){
+            left -= controller.getRightX();
+        }else if (controller.getRightX()>0.2){
+            right += controller.getRightX();
+        }
+        motor1.set(right);
+        motor2.set(left);
+        motor3.set(right);
+        motor4.set(left);
 
-        if ((controller.getLeftY() > 0.2)||(controller.getLeftY() < -0.2)){
-            b = controller.getLeftY();
-            b1  = controller.getRightY();
-        } else {
-            b = 0;
-            b1 = 0;
-        }
-//comment
-        if ((controller.getRightX() > 0.2)||(controller.getRightX() < -0.2)){
-            b = controller.getLeftX();
-            b1 = controller.getRightX();
-        } else {
-            b = 0;
-            b1 = 0;
-        }
 
     }
 
