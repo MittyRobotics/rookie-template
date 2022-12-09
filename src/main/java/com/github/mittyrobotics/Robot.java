@@ -53,7 +53,9 @@ public class Robot extends TimedRobot {
         contro = new XboxController(1);
         secondary = new WPI_TalonFX(2);
         tertiary = new WPI_TalonFX(3);
+        tertiary.setInverted(true);
         quad = new WPI_TalonFX(4);
+        quad.setInverted(true);
 
 
         leftMotors[0] = motor;
