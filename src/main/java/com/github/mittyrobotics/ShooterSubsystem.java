@@ -1,8 +1,9 @@
+package com.github.mittyrobotics;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-class ShooterSubsystem {
+
 
 
     public class ShooterSubsystem extends SubsystemBase {
@@ -14,12 +15,11 @@ class ShooterSubsystem {
             return ourInstance;
         }
 
-        private DriveTrain() {
-            super("DriveTrain");
-        }
+
 
         //initHardware
-        WPI_TalonSRX talon;
+        WPI_TalonSRX motor1; //motor1 is the motor used for the ?turret?
+        WPI_TalonSRX shootermotor;
 
 
         public void initHardware() {
@@ -30,16 +30,15 @@ class ShooterSubsystem {
 
 
             //setting hardware to factory default
-            motor1.setFactoryDefault();
-            shootermotor.setFactoryDefault();
+            motor1.configFactoryDefault();
+            shootermotor.configFactoryDefault();
 
 
             //set any inverted
             motor1.setInverted(false);
             shootermotor.setInverted(false);
 
-            //default command - optional
-            setDefaultCommand(new ShooterOut());
+
 
 
         }
