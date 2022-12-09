@@ -28,10 +28,18 @@ public class Robot extends TimedRobot {
     WPI_TalonFX motor;
     WPI_TalonFX secondary;
 
+
+
+    WPI_TalonFX tertiary;
+
+    WPI_TalonFX quad;
+
     double leftForce;
     double rightForce;
 
     XboxController contro;
+    WPI_TalonFX[] leftMotors = new WPI_TalonFX[2];
+    WPI_TalonFX[] rightMotors = new WPI_TalonFX[2];
     @Override
     public void robotInit() {
 
@@ -45,6 +53,11 @@ public class Robot extends TimedRobot {
         contro = new XboxController(1);
         secondary = new WPI_TalonFX(76);
         secondary.setInverted(true);
+
+        leftMotors[0] = motor;
+        leftMotors[1] = secondary;
+        rightMotors[0] = tertiary;
+        rightMotors[1] = quad;
 
     }
 
@@ -88,14 +101,20 @@ public class Robot extends TimedRobot {
         } else {
             motor.set(0);
             secondary.set(0);
+            tertiary.set(0);
+            quad.set(0);
         }
 
 
         //i hope i didnt make a lpgic error :)
         // i think ur all good! we're not using controller today tho since
      // we haven't taught oi- naomi
-        motor.set(leftForce);
-        secondary.set(rightForce);
+        for (WPI_TalonFX mot: leftMotors) {
+            mot.set(leftForce);
+        }
+        for (WPI_TalonFX mot: rightMotors) {
+            mot.set(rightForce);
+        }
 
 
 
