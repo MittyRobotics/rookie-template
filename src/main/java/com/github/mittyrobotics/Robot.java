@@ -87,7 +87,8 @@ public class Robot extends TimedRobot {
 
 
         //i hope i didnt make a lpgic error :)
-
+        // i think ur all good! we're not using controller today tho since
+     // we haven't taught oi- naomi
         motor.set(leftForce);
         secondary.set(rightForce); **/
 
