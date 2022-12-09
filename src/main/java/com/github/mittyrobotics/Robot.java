@@ -9,6 +9,9 @@ import edu.wpi.first.wpilibj.XboxController;
 public class Robot extends TimedRobot {
     WPI_TalonSRX motor_right;
     WPI_TalonSRX motor_left;
+
+    WPI_TalonSRX motor_right_d;
+    WPI_TalonSRX motor_left_d;
     XboxController controller;
     double right, left = 0;
     //
@@ -20,6 +23,12 @@ public class Robot extends TimedRobot {
         motor_left = new WPI_TalonSRX(24);
         motor_left.configFactoryDefault();
         controller = new XboxController(0);
+        motor_right_d = new WPI_TalonSRX(24);
+        motor_left_d.setInverted(true);
+        motor_right_d.configFactoryDefault();
+        motor_left_d = new WPI_TalonSRX(24);
+        motor_left_d.configFactoryDefault();
+        //controller = new XboxController(0);
         right = 0;
         left = 0;
 
@@ -74,6 +83,8 @@ public class Robot extends TimedRobot {
         }
         motor_right.set(right);
         motor_left.set(left);
+        motor_right_d.set(right);
+        motor_left_d.set(left);
 
     }
 
