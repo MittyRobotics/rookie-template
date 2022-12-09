@@ -15,6 +15,8 @@ public class Robot extends TimedRobot {
 
     WPI_TalonSRX motor;
     WPI_TalonSRX motor2;
+    WPI_TalonSRX motor3;
+    WPI_TalonSRX motor4;
 
     @Override
     public void robotInit() {
@@ -27,6 +29,14 @@ public class Robot extends TimedRobot {
         motor2.configFactoryDefault();
 
         motor2.setInverted(true);
+
+        motor3 = new WPI_TalonSRX(26);
+        motor3.configFactoryDefault();
+
+        motor4 = new WPI_TalonSRX(27);
+        motor4.configFactoryDefault();
+        motor4.setInverted(true);
+
 
 
 
@@ -59,16 +69,48 @@ public class Robot extends TimedRobot {
 
     @Override
     public void teleopPeriodic() {
-     if (controller.getLeftY() > ) //code for the circle error thing
+     /*if (controller.getLeftY() > 0) //code for the circle error thing
         if (controller.getLeftY() > 0){
             fwdSpeed = horizSpeed = 0.7;
             motor.set(fwdSpeed);
             motor2.set(fwdSpeed);
+            motor3.set(fwdSpeed);
+            motor4.set(fwdSpeed);
 
         if (controller.getLeftY() < 0){
             fwdSpeed = horizSpeed = 0.3;
-            motor.set();
-        } //horiz and vertical speed
+            motor.set(horizSpeed); */
+
+         //horiz and vertical speed
+
+        horizSpeed = 0;
+        fwdSpeed = 0;
+
+        if (controller.getLeftY() >0.2 || controller.getLeftY()<0.2) {
+
+            fwdSpeed = controller.getLeftY();
+            horizSpeed = controller.getRightY();
+
+        }else{
+            fwdSpeed = 0;
+            horizSpeed = 0;
+
+        }
+        if (controller.getRightX()<0.2){
+            horizSpeed -= controller.getRightX();
+
+        } else if(controller.getRightX() > 0.2){
+            horizSpeed += controller.getRightX();
+        }
+        motor.set(horizSpeed);
+        motor2.set(fwdSpeed);
+        motor3.set(horizSpeed);
+        motor4.set(fwdSpeed);
+
+
+
+
+
 
 
     @Override
